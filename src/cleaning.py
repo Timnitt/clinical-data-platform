@@ -22,3 +22,13 @@ def clean_patients(patients_df, reference_date=None):
     )
 
     return patients_df
+
+
+def clean_encounters(encounters_df):
+    encounters_df = encounters_df.copy()
+
+    # transform dates into datetim
+    encounters_df["START"] = pd.to_datetime(encounters_df["START"], errors="coerce")
+    encounters_df["STOP"] = pd.to_datetime(encounters_df["STOP"], errors="coerce")
+
+    return encounters_df
