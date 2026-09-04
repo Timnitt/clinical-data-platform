@@ -20,11 +20,8 @@ def make_patients(birthdates):
 
 def test_age_accounts_for_leap_years():
 
-    patients = make_patients(
-        ["1936-01-01"]
-    )
+    patients = make_patients(["1936-01-01"])
 
     result = clean_patients(patients, reference_date=AS_OF)
 
-    assert result.loc[0, "age"] == 90.0  # 90.1 if you divide by 365
-
+    assert result.loc[0, "age"] == 90  # 90.1 if you divide by 365
